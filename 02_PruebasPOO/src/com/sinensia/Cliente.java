@@ -1,25 +1,28 @@
 package com.sinensia;
 
+import com.sinensia.dao.GenericoDAO;
+import com.sinensia.Entidad;
 import java.util.Date;
 
 /**
  *
  * @author Admin
  */
-public class Cliente {
+public class Cliente extends Entidad {
     
-    protected long id;
     protected String Nombre;
     boolean Activo;
     private char Genero;
     private int Edad;
     private String Email;
     
-    public Cliente() {
-    }
+    /*public Cliente() {
+    }*/
     
     public Cliente(long id, String nom, boolean act, char gen, int ed,
             String em) /*throws Exception*/ {
+        super(id);
+        
         this.id = id;
         if (Nombre == null || Nombre == "") {
             //throw new Exception("Nombre de cliente inválido");
@@ -32,13 +35,13 @@ public class Cliente {
         this.Email = em;
     }
     
-    public long getId() {
+    /*public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
+    }*/
     
     public String getNombre() {
         return Nombre;
@@ -85,4 +88,11 @@ public class Cliente {
         System.out.println(" id: " + this.id);
         System.out.println(" Email: " + this.getEmail());
     }
+
+    @Override
+    public String toString() {
+        //return super.toString();
+        return "Cliente [" + id + ", " + Nombre + ", " + Email + "]";
+    }
+  
 }
